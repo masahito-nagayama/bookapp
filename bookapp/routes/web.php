@@ -37,3 +37,13 @@ Route::post('/book', function (Request $request) {
 
   return redirect('/');
 });
+
+Route::delete('/book/{book}', function(Book $book){
+  $book->delete();
+
+  return redirect('/');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
